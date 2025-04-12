@@ -79,6 +79,12 @@ function startCountdown (duration)
 // Task 7: Schedule Pre-Launch Activities and Launch
 function scheduleMission ()
 {
+	startMonitoring(); // Starts monitoring space station conditions.
+	addOneTimeTask(function () {console.log("Pre-launch system check complete.");}, 5000);
+	addOneTimeTask(stopMonitoring, 10000); // Stops monitoring before the countdown.
+	addOneTimeTask(function () {startCountdown(10);}, 15000); // Starts countdown after all preparations.
+
+	runOneTimeTasks(); // Executes all scheduled one-time tasks.
 	// TODO: Use the functions you've created to schedule the pre-launch system check, start and stop monitoring, and execute the countdown. Make sure to adjust the delays appropriately to simulate a real mission timeline.
 }
 
