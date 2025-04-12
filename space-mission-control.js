@@ -48,12 +48,31 @@ function startMonitoring ()
 // Task 5: Stop Monitoring Function
 function stopMonitoring ()
 {
+	clearInterval(monitoringTaskId);
+	console.log("Continuous monitoring stopped.");
 	// TODO: Implement a function named `stopMonitoring` that stops the continuous monitoring by using `clearInterval` on `monitoringTaskId`.
 }
 
 // Task 6: Start Countdown Function
 function startCountdown (duration)
 {
+	let timeLeft = duration;
+	console.log(`Countdown started: ${timeLeft} seconds`);
+
+	const countdownTimerId = setInterval(
+		function ()
+		{
+			timeLeft--;
+			console.log(`T-minus ${timeLeft} seconds`);
+
+			if (timeLeft <= 0)
+			{
+				clearInterval(countdownTimerId);
+				console.log("Liftoff! The rocket has successfully launched into space!");
+			}
+		},
+		1000
+	);
 	// TODO: Create a function named `startCountdown` that takes a duration parameter. Use `setInterval` to decrease the countdown every second and print the remaining time. Use `clearInterval` to stop the countdown when it reaches zero, printing a "Liftoff!" message.
 }
 
