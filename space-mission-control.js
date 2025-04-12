@@ -13,12 +13,35 @@ function addOneTimeTask (func, delay)
 // Task 3: Run One-Time Tasks Function
 function runOneTimeTasks ()
 {
+	for (const oneTimeTask of oneTimeTask){
+
+		setTimeout (oneTimeTask.function, oneTimeTask.delay);
+
+	}
 	// TODO: Create a function named `runOneTimeTasks` that iterates over the `oneTimeTasks` array and uses `setTimeout` to schedule each task according to its delay.
 }
 
 // Task 4: Start Monitoring Function
 function startMonitoring ()
 {
+	function startMonitoring ()
+	{
+		console.log("Starting continuous monitoring of space station parameters...");
+	
+		monitoringTaskId = setInterval(
+			function ()
+			{
+				console.log("Monitoring space station conditions...");
+	
+				/* Condition checks. */
+				const oxygenLevel = Math.random() * 100; // Mock-up oxygen level percentage.
+				const powerStatus = Math.random() > 0.1 ? "Stable" : "Critical"; // Mock-up power status.
+				const communicationCheck = Math.random() > 0.05 ? "All systems go" : "Communication error"; // Mock-up communication system check.
+				console.log(`Oxygen Level: ${oxygenLevel.toFixed(2)}% | Power Status: ${powerStatus} | Communication: ${communicationCheck}`);
+			},
+			2000
+		); // Adjust this interval as needed.
+	}
 	// TODO: Write a function named `startMonitoring` that uses `setInterval` to simulate continuous monitoring. This function should print a message every few seconds and store the interval ID in `monitoringTaskId`.
 }
 
