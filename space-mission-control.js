@@ -1,9 +1,12 @@
 // Task 1: Declare The Task Array and The Interval ID
 // TODO: Begin by declaring an array to hold your one-time tasks (`oneTimeTasks`) and variables for any interval IDs you'll need for continuous tasks (`monitoringTaskId`).
+let oneTimeTask = []
+let monitoringTaskId; 
 
 // Task 2: Add One-Time Task Function
 function addOneTimeTask (func, delay)
 {
+	oneTimeTask.push({function: func, delay: delay});
 	// TODO: Write a function named `addOneTimeTask` that accepts a function (`func`) and a delay (`delay`) as parameters. This function should add an object containing both parameters into the `oneTimeTasks` array.
 }
 
